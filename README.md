@@ -1,8 +1,15 @@
 # Dividend Aristocrats Database
 
 A Python-based command-line application for managing and analyzing dividend stocks. This tool helps investors track and analyze dividend-paying stocks, calculate potential dividend income, and filter stocks based on various criteria.
-This is just a simplified version to learn data structures and algorithms.
-The initial stocks are hardcoded and not read data and input data is not stored anywhere after the program is closed.
+
+## ⚠️ Important Note
+This is purely an educational project focused on:
+- Python data structures
+- Basic financial calculations
+- Command-line interfaces using Rich
+- Input validation
+
+**Data is stored in memory only and will be lost when the program closes.**
 
 ## Features
 
