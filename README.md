@@ -28,7 +28,7 @@ The initial stocks are hardcoded and not read data and input data is not stored 
 
 2. Install the required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install rich
    ```
 
 ## Usage
