@@ -1,5 +1,6 @@
 from rich.console import Console
 from rich.table import Table
+from filtration import Expression
 
 import stock_data
 console=Console()
@@ -36,7 +37,27 @@ def calculate_dividends():
         f"The total dividend for {amount} shares of {ticker} is {round(stock_data.stocks[ticker]['current_dividend'] * amount, 2)}€", style="bold green")
 
 def filter_data():
-    print("filter data")
+    while True:
+        expr=console.input("[italic]Enter a filter expression: [/italic]")
+        if expr=="help":
+            print("Filter expressions are based on the following tokens:")
+            print("  name: The name of the stock")
+            print("  sector: The sector of the stock")
+            print("  current_dividend: The current dividend of the stock")
+            print("  dividend_growth: The dividend growth rate for the last 5 years of the stock")
+            print("  payout_ratio: The current payout ratio for the stock")
+            print("  dividend_rate: The current dividend rate for the stock")
+            print("Syntax: [token]operator[value] AND/OR [token]operator[value] ...")
+            print("Example: sector=='Technology' AND current_dividend>1.0")
+        else:
+            break
+    parsed=Expression.parseString(expr)
+    filtered_stocks={}
+    for ticker, data in stock_data.stocks.items():
+        if parsed(data):
+            filtered_stocks[ticker]=data
+    print_table(filtered_stocks)
+
 
 def readFloat(prompt):
     while True:
