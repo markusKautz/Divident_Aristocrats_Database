@@ -9,7 +9,6 @@ console.print("Press CTRL + C to exit.", style="bold")
 console.print("Press ENTER to continue.", style="bold")
 input()
 
-stocks={}
 while True:
     console.rule("[bold green]Main Menu[/bold green]")
     console.print(
